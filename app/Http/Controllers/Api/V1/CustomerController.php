@@ -16,6 +16,8 @@ use App\Http\Resources\V1\CustomerResource;
 use App\Http\Resources\V1\CustomerCollection;
 use App\Services\V1\CustomerQuery;
 
+use Validator;
+
 
 class CustomerController extends Controller
 {
@@ -60,6 +62,32 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         //
+        $validator = Validator::make(
+            $request->all(),
+            [
+                "name" => ["required"],
+                "email" => ["required"],
+                "phoneNumber" => ["required"],
+                "address" => ["required"],
+            ]
+        );
+
+        if ($validator->fails()){
+            return $validator->messages();
+        }
+
+        $post = Customer::create([
+            "name" => $request->name,
+            "email" => $request->email,
+            "phoneNumber" => $request->phonenumber,
+            "address" => $request->address,
+        ]);
+
+        return [
+            "status" => true,
+            "post" => $post
+        ];
+
     }
 
     /**

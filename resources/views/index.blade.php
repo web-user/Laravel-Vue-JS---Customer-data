@@ -11,6 +11,9 @@
     <div id="app">
 
         <header-componen></header-componen>
+  <!-- route outlet -->
+  <!-- component matched by the route will render here -->
+  <router-view></router-view>
     </div>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </body>

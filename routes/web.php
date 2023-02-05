@@ -13,13 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
-// Route::get('post/{id}', 'App\Http\Controllers\MyPlaceController@index');
-
-Route::get('posts/{id}', 'App\Http\Controllers\PostController@index');
 // Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/{any}', function() {
+    return view('index');
+})->where('any', '.*');
+

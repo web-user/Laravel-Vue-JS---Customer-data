@@ -6,7 +6,9 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
+import "/resources/sass/app.scss";
 
+import router from './router' // <---
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -39,4 +41,4 @@ app.component('header-componen', HeaderComponent);
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
 
-app.mount('#app');
+app.use(router).mount('#app');

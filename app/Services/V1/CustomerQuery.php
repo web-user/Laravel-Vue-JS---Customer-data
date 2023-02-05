@@ -11,7 +11,7 @@ class CustomerQuery {
         'type' => ['eq'],
         'email' => ['eq'],
         'address' => ['eq'],
-        'phonenumber' => ['eq'],
+        'phoneNumber' => ['eq'],
         'city' => ['eq'],
         'state' => ['eq'],
         'postalCode' => ['eq', 'qt', 'lt']

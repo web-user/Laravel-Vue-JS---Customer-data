@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('type'); // Individual or Business 
             $table->string('email');
             $table->string('address');
-            $table->string('phonenumber')->unique();
             $table->string('city');
             $table->string('state');
             $table->string('postal_code');

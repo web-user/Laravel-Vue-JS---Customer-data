@@ -9,7 +9,14 @@ $ docker-compose build --no-cache
 $ docker-compose up 
 $ docker-compose exec app php artisan migrate 
 
+$ npm install && npm run dev
 
+```
+
+## Commands for project
+
+
+```sh
 $ docker-compose exec app composer require laravel/ui
 $ docker-compose exec app php artisan route:list
 $ docker-compose exec app php artisan key:generate
@@ -30,8 +37,6 @@ $ docker-compose exec app php artisan migrate:fresh --seed
 $ docker-compose exec app php artisan make:resource V1/InvoiceResource
 
 $ docker-compose exec app php artisan ui vue --auth
-
-$ npm install && npm run dev
 
 
 $ http://localhost/api/v1/customers?postalCode[gt]=30000&type[eq]=I // filter

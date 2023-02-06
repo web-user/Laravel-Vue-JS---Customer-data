@@ -8,6 +8,9 @@ import './bootstrap';
 import { createApp } from 'vue';
 import "/resources/sass/app.scss";
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 import router from './router' // <---
 
 /**
@@ -41,4 +44,4 @@ app.component('header-componen', HeaderComponent);
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
 
-app.use(router).mount('#app');
+app.use(router, VueAxios, axios).mount('#app');

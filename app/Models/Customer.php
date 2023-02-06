@@ -9,7 +9,12 @@ class Customer extends Model
 {
     use HasFactory;
 
-    public function phoneNumbers() {
-        return $this->hasMany(PhoneNumber::class);
-    }
+    protected $casts = [
+        'phone_numbers' => 'array'
+    ];
+
+    protected $fillable = ['name', 'email', 'address', 'phone_numbers', 'city', 'state', 'postal_code'];
+
+
+
 }

@@ -66,26 +66,38 @@ class CustomerController extends Controller
             $request->all(),
             [
                 "name" => ["required"],
-                "email" => ["required"],
-                "phoneNumber" => ["required"],
+                "email" => ["required", "email"],
+                "phoneNumbers" => ["required", "array"], // "array:number,type", // number, type
+                "phoneNumbers.*"  => ["required", "min:2"],
                 "address" => ["required"],
+                "city" => ["required"],
+                "state" => ["required"],
+                "postal_code" => ["required"]
             ]
         );
 
         if ($validator->fails()){
-            return $validator->messages();
+            return [
+                "status" => false,
+                "errors" => $validator->messages()
+            ];
         }
 
-        $post = Customer::create([
+        $customer = Customer::create([
             "name" => $request->name,
             "email" => $request->email,
-            "phoneNumber" => $request->phonenumber,
             "address" => $request->address,
+            "phone_numbers" => $request->phoneNumbers,
+            "city" => $request-x>city,
+            "state" => $request->state,
+            "postal_code" => $request->postal_code,
         ]);
+
+
 
         return [
             "status" => true,
-            "post" => $post
+            "post" => $customer
         ];
 
     }
